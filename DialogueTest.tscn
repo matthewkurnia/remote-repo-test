@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Montserrat-Black.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Montserrat-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Play Text"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Wow! that. is. [b]AWESOME[/b] !"
+visible_characters = 0
+percent_visible = 0.0
+text = "Wow! that. is. AWESOME !"
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="RichTextLabel"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+"anims/Play Text" = SubResource( 3 )
+

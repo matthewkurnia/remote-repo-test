@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "BaseClass",
+"language": "GDScript",
+"path": "res://new_script.gd"
+}, {
+"base": "Node",
+"class": "StaticTest",
+"language": "GDScript",
+"path": "res://TestStaticMethod.gd"
+} ]
+_global_script_class_icons={
+"BaseClass": "",
+"StaticTest": ""
+}
+
+[application]
+
+config/name="Experiments"
+config/icon="res://icon.png"
+
+[autoload]
+
+GlobalCamera="*res://Camera2D.tscn"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

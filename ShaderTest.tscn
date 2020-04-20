@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 tile = vec2(5.0, 5.0);
+
+void fragment() {
+	vec2 uv = UV * tile;
+	COLOR = texture(TEXTURE, uv);
+//	COLOR = vec4(uv, 0.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/tile = Vector2( 5, 5 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="icon" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 485, 262 )
+texture = ExtResource( 1 )
+
